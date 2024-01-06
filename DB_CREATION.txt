@@ -1,0 +1,24 @@
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    location VARCHAR(25)
+);
+
+CREATE TABLE products (
+    price DECIMAL(6,2),
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50)
+);
+
+CREATE TABLE orders (
+    customer_id INT REFERENCES customers(customer_id),
+    order_date DATE,
+    order_id INT PRIMARY KEY,
+    shipping_cost DECIMAL
+);
+
+CREATE TABLE sales (
+    order_id INT REFERENCES orders(order_id),
+    product_id INT REFERENCES products(product_id),
+    quantity INT
+);
