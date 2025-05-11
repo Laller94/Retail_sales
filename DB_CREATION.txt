@@ -14,7 +14,7 @@ CREATE TABLE orders (
     customer_id INT REFERENCES customers(customer_id),
     order_date DATE,
     order_id INT PRIMARY KEY,
-    shipping_cost DECIMAL
+    shipping_cost DECIMAL(4,2)
 );
 
 CREATE TABLE sales (
